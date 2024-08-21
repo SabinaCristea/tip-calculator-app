@@ -58,6 +58,15 @@
       &:hover,
       &:active {
         background-color: #9fe8df;
+
+        cursor: pointer;
+      }
+
+      &:disabled {
+        background-color: #0d686d;
+        color: #00474b;
+        opacity: 35%;
+        cursor: not-allowed;
       }
     }
   }

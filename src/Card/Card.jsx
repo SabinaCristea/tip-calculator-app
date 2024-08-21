@@ -4,21 +4,28 @@ import Outputs from "../Outputs/Outputs";
 import "./Card.scss";
 
 const Card = () => {
-  const [bill, setBill] = useState(0);
-  const [tip, setTip] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [bill, setBill] = useState("");
+  const [tip, setTip] = useState("");
+  const [people, setPeople] = useState("");
 
   const handleResetData = () => {
-    setBill(0);
-    setTip(0);
-    setPeople(0);
+    setBill("");
+    setTip("");
+    setPeople("");
   };
 
   console.log(bill, tip, people);
 
   return (
     <div className="card">
-      <Inputs setBill={setBill} setTip={setTip} setPeople={setPeople} />
+      <Inputs
+        bill={bill}
+        tip={tip}
+        people={people}
+        setBill={setBill}
+        setTip={setTip}
+        setPeople={setPeople}
+      />
       <Outputs
         bill={bill}
         tip={tip}

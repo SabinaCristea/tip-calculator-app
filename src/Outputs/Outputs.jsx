@@ -14,19 +14,29 @@ const Outputs = ({ bill, tip, people, onReset }) => {
           <div className="outputs__tip-desc">
             Tip Amount <span>/ person</span>
           </div>
-          <div className="outputs__tip-output">${tipResult.tipPerPerson}</div>
+          <div className="outputs__tip-output">
+            ${bill && tip && people ? tipResult.tipPerPerson.toFixed(2) : "0"}
+          </div>
         </div>
         <div className="outputs__total">
           <div className="outputs__total-desc">
             Total <span>/ person</span>
           </div>
           <div className="outputs__total-output">
-            ${tipResult.totalAmountPerPerson}
+            $
+            {bill && tip && people
+              ? tipResult.totalAmountPerPerson.toFixed(2)
+              : "0"}
           </div>
         </div>
       </div>
       <div className="outputs__action">
-        <button className="outputs__action-btn" onClick={onReset}>
+        <button
+          className="outputs__action-btn"
+          onClick={onReset}
+          disabled={!bill && !tip && !people}
+          // disabled={true}
+        >
           RESET
         </button>
       </div>

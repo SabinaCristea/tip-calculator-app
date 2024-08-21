@@ -19,6 +19,17 @@
     gap: 0.6rem;
   }
 
+  &__people {
+    position: relative;
+    .red-text {
+      color: #e17052;
+      font-size: 1.6rem;
+
+      position: absolute;
+      right: 0;
+    }
+  }
+
   &__select-tip {
     &--tips {
       margin-top: 1rem;
@@ -130,4 +141,8 @@
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.red {
+  border: 2px solid #e17052 !important;
 }
