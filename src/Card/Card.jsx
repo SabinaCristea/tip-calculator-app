@@ -6,25 +6,28 @@ import "./Card.scss";
 const Card = () => {
   const [bill, setBill] = useState("");
   const [tip, setTip] = useState("");
+  const [customTip, setCustomTip] = useState("");
   const [people, setPeople] = useState("");
 
   const handleResetData = () => {
     setBill("");
     setTip("");
+    setCustomTip("");
     setPeople("");
   };
 
-  console.log(bill, tip, people);
+  console.log(tip);
 
   return (
     <div className="card">
       <Inputs
         bill={bill}
-        tip={tip}
         people={people}
         setBill={setBill}
         setTip={setTip}
         setPeople={setPeople}
+        setCustomTip={setCustomTip}
+        customTip={customTip}
       />
       <Outputs
         bill={bill}

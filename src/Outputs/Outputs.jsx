@@ -1,11 +1,9 @@
 import { calculateTip } from "../helpers/CalculateTip";
 import "./Outputs.scss";
 
+/* eslint-disable react/prop-types */
 const Outputs = ({ bill, tip, people, onReset }) => {
   const tipResult = calculateTip(bill, tip, people);
-
-  console.log(tipResult.tipPerPerson);
-  console.log(tipResult.totalAmountPerPerson);
 
   return (
     <div className="outputs">
@@ -35,7 +33,6 @@ const Outputs = ({ bill, tip, people, onReset }) => {
           className="outputs__action-btn"
           onClick={onReset}
           disabled={!bill && !tip && !people}
-          // disabled={true}
         >
           RESET
         </button>

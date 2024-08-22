@@ -1,7 +1,37 @@
+import { useEffect, useState } from "react";
 import "./Inputs.scss";
 
-const Inputs = ({ setBill, setTip, setPeople, bill, tip, people }) => {
-  // console.log(people === 0);
+/* eslint-disable react/prop-types */
+const Inputs = ({
+  setBill,
+  setTip,
+  setPeople,
+  bill,
+  people,
+  customTip,
+  setCustomTip,
+}) => {
+  const [isActive, setIsActive] = useState(false);
+  const [activeTip, setActiveTip] = useState(null);
+
+  useEffect(() => {
+    setIsActive(true);
+    setTip(customTip || activeTip || 0);
+  }, [setTip, customTip, activeTip]);
+
+  const handleTip = (value) => {
+    setCustomTip("");
+    setTip(value);
+    setActiveTip(value);
+  };
+
+  const handleCustomTip = (value) => {
+    setActiveTip(null);
+    setCustomTip(value);
+    setTip(value);
+  };
+
+  console.log(isActive);
 
   return (
     <div className="inputs">
@@ -13,8 +43,8 @@ const Inputs = ({ setBill, setTip, setPeople, bill, tip, people }) => {
             className="inputs__bill-input"
             placeholder="0"
             value={bill}
-            onChange={(e) => setBill(parseFloat(e.target.value))}
-            min={0}
+            onChange={(e) => setBill(Math.abs(e.target.value))}
+            min="0"
           />
           <img
             src="./images/icon-dollar.svg"
@@ -26,43 +56,26 @@ const Inputs = ({ setBill, setTip, setPeople, bill, tip, people }) => {
       <div className="inputs__select-tip">
         <div className="inputs__select-tip--label label">Select Tip %</div>
         <div className="inputs__select-tip--tips">
-          <div
-            className="inputs__select-tip--tips_btn"
-            onClick={() => setTip(5)}
-          >
-            5%
-          </div>
-          <div
-            className="inputs__select-tip--tips_btn"
-            onClick={() => setTip(10)}
-          >
-            10%
-          </div>
-          <div
-            className="inputs__select-tip--tips_btn"
-            onClick={() => setTip(15)}
-          >
-            15%
-          </div>
-          <div
-            className="inputs__select-tip--tips_btn"
-            onClick={() => setTip(25)}
-          >
-            25%
-          </div>
-          <div
-            className="inputs__select-tip--tips_btn"
-            onClick={() => setTip(50)}
-          >
-            50%
-          </div>
-
+          {[5, 10, 15, 25, 50].map((value) => (
+            <div
+              key={value}
+              className={`inputs__select-tip--tips_btn ${
+                activeTip === value ? "active" : ""
+              }`}
+              onClick={() => handleTip(value)}
+            >
+              {value}%
+            </div>
+          ))}
           <input
             className="inputs__select-tip--tips_btn custom-tip custom-tip"
             placeholder="Custom"
             type="number"
-            // value={tip}
-            onChange={(e) => setTip(parseInt(e.target.value))}
+            value={customTip}
+            onChange={(e) =>
+              handleCustomTip(Math.abs(parseInt(e.target.value)))
+            }
+            min="0"
           />
         </div>
       </div>
@@ -75,8 +88,8 @@ const Inputs = ({ setBill, setTip, setPeople, bill, tip, people }) => {
             className={`${people === 0 ? "red" : ""} inputs__people-input`}
             placeholder="0"
             value={people}
-            onChange={(e) => setPeople(parseInt(e.target.value))}
-            min={0}
+            onChange={(e) => setPeople(Math.abs(parseInt(e.target.value)))}
+            min="0"
           />
           <img
             src="./images/icon-person.svg"
@@ -90,8 +103,3 @@ const Inputs = ({ setBill, setTip, setPeople, bill, tip, people }) => {
 };
 
 export default Inputs;
-
-// fix custom value
-// fix negative numbers
-// fix active tip btn
-// phone screen
