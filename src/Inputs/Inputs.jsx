@@ -10,10 +10,11 @@ const Inputs = ({
   people,
   customTip,
   setCustomTip,
+  isActive,
+  setIsActive,
+  activeTip,
+  setActiveTip,
 }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [activeTip, setActiveTip] = useState(null);
-
   useEffect(() => {
     setIsActive(true);
     setTip(customTip || activeTip || 0);

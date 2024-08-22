@@ -8,12 +8,16 @@ const Card = () => {
   const [tip, setTip] = useState("");
   const [customTip, setCustomTip] = useState("");
   const [people, setPeople] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  const [activeTip, setActiveTip] = useState(null);
 
   const handleResetData = () => {
     setBill("");
     setTip("");
     setCustomTip("");
     setPeople("");
+    setIsActive(false);
+    setActiveTip(null);
   };
 
   console.log(tip);
@@ -28,6 +32,10 @@ const Card = () => {
         setPeople={setPeople}
         setCustomTip={setCustomTip}
         customTip={customTip}
+        isActive={isActive}
+        setIsActive={setIsActive}
+        activeTip={activeTip}
+        setActiveTip={setActiveTip}
       />
       <Outputs
         bill={bill}
