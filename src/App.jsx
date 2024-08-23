@@ -1,4 +1,3 @@
-import "./App.scss";
 import Card from "./Card/Card";
 import Title from "./Title/Title";
 

@@ -13,7 +13,7 @@ const Outputs = ({ bill, tip, people, onReset }) => {
             Tip Amount <span>/ person</span>
           </div>
           <div className="outputs__tip-output">
-            ${bill && tip && people ? tipResult.tipPerPerson.toFixed(2) : "0"}
+            ${bill && people ? tipResult.tipPerPerson.toFixed(2) : "0"}
           </div>
         </div>
         <div className="outputs__total">
@@ -21,10 +21,7 @@ const Outputs = ({ bill, tip, people, onReset }) => {
             Total <span>/ person</span>
           </div>
           <div className="outputs__total-output">
-            $
-            {bill && tip && people
-              ? tipResult.totalAmountPerPerson.toFixed(2)
-              : "0"}
+            ${bill && people ? tipResult.totalAmountPerPerson.toFixed(2) : "0"}
           </div>
         </div>
       </div>
