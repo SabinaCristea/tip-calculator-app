@@ -23,9 +23,15 @@ html {
   font-family: "SM-Bold";
 }
 
-@media only screen and (max-width: 62em) {
+@media only screen and (max-width: 64em) {
   html {
     font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 43.75em) {
+  html {
+    font-size: 40%;
   }
 }
 
@@ -36,6 +42,18 @@ body {
   justify-content: center;
 
   background-color: #c5e4e7;
+}
+
+@media only screen and (max-width: 31.25em) {
+  html {
+    font-size: 60%;
+  }
+
+  body {
+    display: block;
+    /* overflow-y: hidden; */
+    /* scroll-behavior: smooth; */
+  }
 }
 
 input::-webkit-outer-spin-button,

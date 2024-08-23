@@ -1,5 +1,12 @@
+@import "./../../mixins";
+
 .title {
   margin-bottom: 8rem;
+
+  @include respond(phone) {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
 }
 
 .app-title {
@@ -9,4 +16,7 @@
 
   text-align: center;
   color: #3d6666;
+
+  @include respond(phone) {
+  }
 }

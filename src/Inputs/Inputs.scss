@@ -1,3 +1,5 @@
+@import "./../../mixins";
+
 .inputs {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,13 @@
   padding: 1rem 0 1rem 1rem;
 
   width: 37.9rem;
+
+  @include respond(phone) {
+    width: 100%;
+
+    padding: 0;
+  }
+
   .label {
     font-size: 1.6rem;
     color: #5e7a7d;
@@ -39,6 +48,12 @@
       row-gap: 1.6rem;
       column-gap: 1.4rem;
 
+      @include respond(phone) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 1.7rem;
+      }
+
       &_btn {
         display: flex;
         align-items: center;
@@ -52,6 +67,10 @@
         border-radius: 0.5rem;
 
         cursor: pointer;
+
+        @include respond(phone) {
+          width: auto;
+        }
       }
 
       &_btn:not(:last-child) {
@@ -115,6 +134,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include respond(phone) {
+      width: 100%;
+    }
 
     ::placeholder {
       text-align: center;
