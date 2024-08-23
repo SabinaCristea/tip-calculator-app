@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/desktop-preview.jpg)
-![](./design/mobile-design.jpg)
+![](./public/design/desktop-preview.jpg)
+![](./public/design/mobile-design.jpg)
 
 ### Links
 
@@ -46,5 +46,5 @@ Users should be able to:
 ## Author
 
 - Website - [Sabina Cristea](https://www.sabinacristea.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/SabinaCristea)
+- Frontend Mentor - [@sabinacristea](https://www.frontendmentor.io/profile/SabinaCristea)
 - Instagram - [@sabinacodes](https://www.instagram.com/sabinacodes/)
